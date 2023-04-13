@@ -41,7 +41,12 @@ ax = plt.subplot()
 [ax.scatter(point[0], point[1], color='#EF6C35', s=60) for point in points['orange']]
 
 new_class = clf.predict(new_point)
-color = '#EF6C35' if new_class == 'orange' else '#104DCA'
+
+if new_class == 'orange':
+    color = '#EF6C35'
+else:
+    color = '#104DCA'
+
 ax.scatter(new_point[0], new_point[1], color=color, marker='*', s=200, zorder=100)
 
 [ax.plot([new_point[0], point[0]], [new_point[1], point[1]], color='#104DCA', linestyle='--', linewidth=1) for point in points['blue']]
